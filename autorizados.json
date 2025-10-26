@@ -1,7 +1,12 @@
- {
+{
   "autorizados": [
-    "HWID123",
-    "HWID456",
-    "HWID789"
+    {
+      "hwid": "HWID123",
+      "expira": "2025-11-26"
+    },
+    {
+      "hwid": "HWID456",
+      "expira": "2025-12-10"
+    }
   ]
 }
