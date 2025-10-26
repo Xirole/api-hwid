@@ -8,6 +8,11 @@ app.use(cors());
 
 const autorizados = JSON.parse(fs.readFileSync('autorizados.json')).autorizados;
 
+// ✅ Ruta raíz para evitar "Cannot GET /"
+app.get('/', (req, res) => {
+  res.send('API HWID funcionando correctamente ✅');
+});
+
 app.get('/verificar/:hwid', (req, res) => {
   const hwid = req.params.hwid;
   const autorizado = autorizados.includes(hwid);
