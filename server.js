@@ -54,6 +54,42 @@ app.post('/agregar/:hwid/:dias', (req, res) => {
   res.send(`HWID agregado por ${dias} días`);
 });
 
+// ✅ Editar HWID (actualizar fecha de expiración)
+app.put('/editar/:hwid/:dias', (req, res) => {
+  const hwid = req.params.hwid;
+  const dias = parseInt(req.params.dias);
+
+  const autorizadosData = JSON.parse(fs.readFileSync('autorizados.json'));
+  const registro = autorizadosData.autorizados.find(h => h.hwid === hwid);
+
+  if (!registro) {
+    return res.status(404).send('HWID no encontrado');
+  }
+
+  const nuevaFecha = new Date();
+  nuevaFecha.setDate(nuevaFecha.getDate() + dias);
+  registro.expira = nuevaFecha.toISOString().split('T')[0];
+
+  fs.writeFileSync('autorizados.json', JSON.stringify(autorizadosData, null, 2));
+  res.send(`HWID ${hwid} actualizado por ${dias} días`);
+});
+
+// ✅ Eliminar HWID
+app.delete('/eliminar/:hwid', (req, res) => {
+  const hwid = req.params.hwid;
+
+  const autorizadosData = JSON.parse(fs.readFileSync('autorizados.json'));
+  const index = autorizadosData.autorizados.findIndex(h => h.hwid === hwid);
+
+  if (index === -1) {
+    return res.status(404).send('HWID no encontrado');
+  }
+
+  autorizadosData.autorizados.splice(index, 1);
+  fs.writeFileSync('autorizados.json', JSON.stringify(autorizadosData, null, 2));
+  res.send(`HWID ${hwid} eliminado correctamente`);
+});
+
 // ✅ Ver todos los HWIDs autorizados
 app.get('/autorizados', (req, res) => {
   try {
