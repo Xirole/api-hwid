@@ -54,6 +54,17 @@ app.post('/agregar/:hwid/:dias', (req, res) => {
   res.send(`HWID agregado por ${dias} días`);
 });
 
+// ✅ Ver todos los HWIDs autorizados
+app.get('/autorizados', (req, res) => {
+  try {
+    const data = fs.readFileSync('autorizados.json', 'utf8');
+    const json = JSON.parse(data);
+    res.json(json);
+  } catch (error) {
+    res.status(500).json({ error: 'No se pudo leer el archivo autorizados.json' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en puerto ${PORT}`);
 });
