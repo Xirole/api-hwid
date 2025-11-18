@@ -1,22 +1,18 @@
 {
   "autorizados": [
-  
-     {
+    {
       "hwid": "b4276a2bd9a668a4",
       "expira": "2025-26-11"
     },
     {
       "hwid": "73319ce08bb8849d",
       "expira": "2025-26-11",
-       "nombre": "javier Troyanito"
+      "nombre": "javier Troyanito"
     },
-       
-       
-      {
+    {
       "hwid": "c2d8f53a2ca7b669",
       "expira": "2030-26-11",
       "nombre": "InterCorp DEV"
     }
-       
   ]
 }
