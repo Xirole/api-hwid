@@ -4,11 +4,7 @@
       "hwid": "b4276a2bd9a668a4",
       "expira": "2025-11-26"
     },
-    {
-      "hwid": "73319ce08bb8849d",
-      "expira": "2026-01-03",
-      "nombre": "javier Troyanito"
-    },
+    
     {
       "hwid": "c2d8f53a2ca7b669",
       "expira": "2030-11-26",
@@ -18,6 +14,11 @@
       "hwid": "c4b3ca731721864c",
       "expira": "2030-11-26",
       "nombre": "InterCorp VENT"
+    },
+    {
+      "hwid": "73319ce08bb8849d",
+      "expira": "2026-01-03",
+      "nombre": "javier"
     },
        {
       "hwid": "cb7a65d852b91dec",
